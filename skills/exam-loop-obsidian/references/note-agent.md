@@ -137,6 +137,14 @@ content are only ever added to. `.obsidian/` is off limits.
   text.
 - Only validated items get notes.
 
+**Visualizations**
+- Add a small visual whenever the item has structure, even in a lean note:
+  Mermaid (` ```mermaid `, rendered natively by Obsidian) for state graphs,
+  Markov chains, flows and probability trees; Matplotlib images (in the
+  vault's attachments folder, `![[Image_Name.png]]`) for curves.
+- Mermaid: plain-text quoted labels, no LaTeX, ≤ ~12 nodes; reread for
+  syntax errors.
+
 ## Graphify (optional)
 
 If `graphify` is available and an up-to-date graph exists

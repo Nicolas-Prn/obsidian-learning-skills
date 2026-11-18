@@ -176,6 +176,10 @@ For each concept, in the order of the course:
   the note sub-agent once the learner has **applied it correctly** (e.g. a
   corrected file that works), not only after a classic Q&A test.
 - Always define the mathematical symbols used.
+- **Show, don't only tell**: when the session's tools can draw in the chat
+  (inline chart or diagram), use them for structured concepts — the curve of
+  a formula for several parameter values, a state graph, a table of all
+  cases. These visuals then go into the notes (see "Visualizations").
 - **Reproduce AT A MINIMUM the exact formalisations of the source course**
   (same complete expressions, same definition numbers). Any additional
   explanation comes IN ADDITION, never INSTEAD.
@@ -447,9 +451,28 @@ you created or edited.
   long).
 - Do not create a note on a concept not yet validated.
 
-**Graphics**
-- If an illustration helps: Matplotlib code, image in the vault's
-  attachments folder, inserted with `![[Image_Name.png]]`.
+**Visualizations (make them often — they help the learner a lot)**
+- Default to adding a visual whenever the concept has structure: states and
+  transitions, a process or algorithm, a hierarchy, a comparison, or the
+  shape of a function. A note without a visual should be the exception for
+  such concepts, not the rule.
+- **Mermaid first** (Obsidian renders ` ```mermaid ` code blocks natively):
+  - `graph LR` / `stateDiagram-v2` for Markov chains, automata, state
+    machines (states as nodes, transition probabilities on the arrows,
+    self-loops, absorbing states);
+  - `graph TD` / `flowchart` for one step of an algorithm or process (e.g.
+    one time step of a stochastic process, a decision procedure);
+  - `sequenceDiagram` for protocols and message exchanges;
+  - small trees for probability trees and case splits.
+  Mermaid rules: plain-text labels in quotes, no LaTeX inside Mermaid, no
+  characters that break the parser; keep diagrams small (≤ ~12 nodes);
+  reread the block for syntax errors.
+- **Matplotlib** for curves, distributions and numerical results (e.g. a
+  function for several parameter values): image in the vault's attachments
+  folder, inserted with `![[Image_Name.png]]`, generated in a temporary
+  folder outside the vault.
+- Reuse the visuals that made the learner understand in the chat (a chart,
+  a table of cases) in rigorous form in the note.
 
 #### Graphify (optional)
 

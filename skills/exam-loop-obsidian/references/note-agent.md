@@ -47,6 +47,13 @@ One MOC per course, `##` sections following the chapters, `- [[Title]]`
 links in course order. Every new note is added to it; no orphan notes. The
 course MOC links to the exam plan note.
 
+Source documents live in the vault, linked, never cited as plain text: copy
+each source file used (slides, notes, statement, papers) from the course
+folder into the vault's attachments folder (keep its name, skip if already
+there) and link it with a labelled wikilink, e.g.
+`- [[Course_Notes_2026.pdf|Course theory document]]`, at the top of the MOC
+and at the top of each `##` section with the pages used.
+
 ## Exam plan note
 
 When asked to save the plan, write `Inbox/COURSE NAME exam plan.md`:

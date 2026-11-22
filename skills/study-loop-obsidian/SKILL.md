@@ -361,8 +361,20 @@ vault's own names and hierarchy.
 #### Course MOC
 
 - A single MOC per course, in the planned branch of the tree.
-- At the top: a line citing the course material (link to the PDF if it is in
-  the vault, otherwise plain text).
+- **Source documents live in the vault, linked — never cited as plain
+  text.** Copy every source file actually used (lecture slides, course
+  notes, assignment statement, papers) from the course folder into the
+  vault's attachments folder (the folder where the vault keeps its images
+  and PDFs), keeping the original file name, unless a copy is already
+  there. Then link it with a labelled wikilink, e.g.
+  `- [[Course_Notes_2026.pdf|Course theory document]]` (label in the course
+  language):
+  - at the top of the MOC, one line per main course document;
+  - at the top of each `##` section, the documents and pages it draws on,
+    e.g. `Source: [[EGT basics part 1_single.pdf|EGT basics part 1]]
+    (slides 47–66)`.
+  A plain-text citation (file name or path in quotes or backticks) is a
+  mistake to fix: copy the file and replace it with the link.
 - `##` sections that follow the chapters/parts of the course, containing the
   `- [[Title]]` links in course order; indented sub-bullets for the special
   cases of a note.
@@ -372,7 +384,9 @@ vault's own names and hierarchy.
 
 1. Refresh `note_list.txt` (`scripts/update_note_list.py <vault> <list>`:
    titles of the `.md` files without extension, hidden folders ignored).
-2. Check the structure (above) and complete it if needed.
+2. Check the structure (above) and complete it if needed, including the
+   source documents: copy any source file of this concept that is not yet
+   in the vault and link it from the MOC (see "Course MOC").
 3. Check the formalism in the source material at the pages indicated.
 4. List the vocabulary terms of the concept and check that each one has its
    definition note (create the missing ones).

@@ -7,14 +7,16 @@ pick the one that matches your goal.
 | Skill | Goal | Pace |
 |---|---|---|
 | [`study-loop-obsidian`](#study-loop-obsidian--deep-understanding) | Understand the course in depth, line by line | Exhaustive: every concept, every definition |
-| [`exam-loop-obsidian`](#exam-loop-obsidian--pareto-exam-preparation) | Best grade in the least study time | Pareto: the ~20% of the material that earns ~80% of the points |
+| [`exam-loop-obsidian`](#exam-loop-obsidian--pareto-coach-for-exams-and-deliverables) | Best grade in the least time, for an **exam** or a **graded deliverable** (homework, assignment, project, report) | Pareto: the ~20% of the work that earns ~80% of the points |
 
 Both are demanding: critical tests, no "almost right", no flattery. They
 differ in what they cover and how far they go.
 
 You never have to pick the skill yourself: whichever one Claude loads first
 asks for your goal at the start of the session (unless your first message
-already makes it clear) and hands off to the other one if it fits better.
+already makes it clear) and routes you to one of three modes — **depth**
+(`study-loop-obsidian`), **exam** or **deliverable** (`exam-loop-obsidian`).
+A homework or project with a deadline goes to deliverable mode by default.
 You can also switch mid-session.
 
 Every session starts with a **session plan** sized to the time you have:
@@ -23,7 +25,9 @@ shows it in the client's progress panel (the **Progress** section in Claude
 desktop). Items are ticked off live as you validate them; when you fall
 behind, the plan is adjusted out loud so the session still ends on time —
 by moving concepts to the next session in `study-loop-obsidian`, by
-dropping the lowest-yield item in `exam-loop-obsidian`.
+dropping the lowest-yield item in `exam-loop-obsidian`. Every session ends
+with the very first concrete action of the next one, so restarting costs
+nothing.
 
 ## study-loop-obsidian — deep understanding
 
@@ -63,10 +67,20 @@ explain a concept  →  test you (critically)  →  mastered?
   (no scaffolding, no commits) and never offers to; it explains, asks,
   reviews and points you to the right resource.
 
-## exam-loop-obsidian — Pareto exam preparation
+## exam-loop-obsidian — Pareto coach for exams and deliverables
 
-A **demanding exam coach** for when the exam is close and the material is
-too big to cover in depth.
+A **demanding Pareto coach** for graded work, when time is short. Progress
+is counted in validated output (exam skills that score, parts of the
+deliverable that are done), never in hours spent. Planning is capped
+(~15 min for an exam, ~5 min for a deliverable) so it never eats the
+session.
+
+Your **target** sets the bar: *pass safely* moves on once an item scores
+~70% of its points with no fatal error (and drops more freely), *maximise*
+requires full marks. Grading stays strict either way; the target only
+decides when an item is good enough.
+
+### Exam mode
 
 ```
 intake: which exam? which latest documents?
@@ -78,7 +92,7 @@ Pareto plan: Core / If time / Dropped (+ ≥20% of the time for a mock exam)
 for each item:  diagnose (exam question)  →  already scores? → next item
                         │ no
                         ▼
-                teach only the gap  →  exam-style test  →  full marks?
+                teach only the gap  →  exam-style test  →  target met?
                         ↑                                     │
                         └──────────── no ◄────────────────────┤
                                                               │ yes
@@ -114,6 +128,42 @@ mock exam under real conditions  →  targeted fixes  →  final review
   confused (~10-30 lines each), plus a plan note with a checklist and a
   mistake log. They stay compatible with `study-loop-obsidian`, which can
   enrich them later.
+
+### Deliverable mode
+
+For a graded homework, assignment, lab, project or report with a deadline:
+the deliverable is the product, and learning happens **just in time**.
+
+```
+read the statement (yourself, or via Moodle)  →  5-min intake
+        │
+        ▼
+deliverable plan: parts ranked by points per hour, Core / If time / Dropped
+(+ ≥15% of the time for the final rubric check and submission)
+        │
+        ▼
+for each part:  frame it (2-3 lines)  →  you attempt it first
+                        │ blocked?
+                        ▼
+                teach only the blocking point (minimal example + 1 check)
+                        │
+                        ▼
+                review like the grader  →  meets the target?  → next part
+        │
+        ▼
+final rubric check  →  submission checklist  →  handed in
+```
+
+- **No chapter walk-through**: never starts from the first slide, never
+  teaches a concept the current part does not need.
+- **Anti-rabbit-hole**: stuck ~20 minutes on the same blocker → a more
+  direct hint, then a workaround (simplify, partial credit, a precise
+  question for the TA) and the next part.
+- **Still your work**: the coach reviews, points to the line and explains
+  why, but never writes your solution.
+- **Plan note in the vault** with the parts as a checklist, the deadline,
+  the mistake log and the next step; notes only for what was taught to
+  unblock you.
 
 ## Vault structure (Zettelkasten adapted to Obsidian)
 
@@ -216,7 +266,10 @@ At the start of a session, give Claude:
 
 For `exam-loop-obsidian`, also have ready: the exam details (date, format,
 grading, allowed material), the hours you can study, and the latest course
-documents, ideally with exercise solutions and past exams.
+documents, ideally with exercise solutions and past exams. For a
+deliverable: the statement, the rubric if any, the deadline and the folder
+of your work. With a course-platform connector (e.g. Moodle), the coach
+fetches deadlines, statements and announcements itself.
 
 Claude needs read/write access to these folders (in the app: connected
 folders; in Claude Code: start the session from a parent folder or add

@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "study-loop",
-      "description": "Socratic tutor for deep understanding and Pareto exam coach, both with background Obsidian note-taking.",
+      "description": "Socratic tutor for deep understanding and Pareto coach for exams and graded deliverables, both with background Obsidian note-taking.",
       "source": "./"
     }
   ]

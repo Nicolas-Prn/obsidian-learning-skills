@@ -1,6 +1,6 @@
 {
   "name": "study-loop",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Study skills with automatic Obsidian note-taking: a Socratic tutor for deep understanding and a Pareto coach for the best grade in the least time, on exams and graded deliverables.",
   "author": {
     "name": "Nicolas Pruneau"

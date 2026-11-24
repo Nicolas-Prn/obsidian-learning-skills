@@ -100,6 +100,15 @@ In deliverable mode, notes cover **only what was taught to unblock a part**
 teaching, and never a note that reproduces the user's solution to the
 graded work.
 
+## Living learner profile
+
+When the prompt reports what worked and what failed in an explanation,
+update `Inbox/Learner profile.md` (create it if missing: properties `Date`;
+sections `#### What works`, `#### What fails`, `#### Analogies that landed`
+with one bullet per concept → analogy). Add dated one-line bullets, merge
+duplicates, keep it under ~60 lines: it is read at the start of every
+session, so it must stay short and actionable.
+
 ## What a lean note contains
 
 For each validated item, write the **fewest atomic notes that cover what the

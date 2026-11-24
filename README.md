@@ -165,6 +165,25 @@ final rubric check  →  submission checklist  →  handed in
   the mistake log and the next step; notes only for what was taught to
   unblock you.
 
+## How explanations are built (both skills)
+
+Both skills share one way of explaining, so the right explanation comes on
+the first try instead of the fourth:
+
+- **The explanation ladder**: answer your exact question first, then the
+  purpose, what happens on one concrete input, one everyday analogy mapped
+  one-to-one, the course's formal version, how it maps onto your own code or
+  exercise, and a one-sentence takeaway.
+- **No branching**: at most one new technical term per message, no
+  undefined placeholder, no example built on code you have never seen;
+  programming skills go code-first.
+- **Confusion protocol**: at the first "what do you mean?", the whole point
+  is restated, with no new material; at the second signal (or when you are
+  tired), a complete recap from scratch, in your own language.
+- **Living learner profile**: `Inbox/Learner profile.md` in your vault
+  records which explanations landed and which failed; it is read at the
+  start of every session.
+
 ## Vault structure (Zettelkasten adapted to Obsidian)
 
 Both skills share the same vault conventions. The sub-agent manages the vault's **structure**, not just notes:
@@ -197,9 +216,9 @@ Both skills share the same vault conventions. The sub-agent manages the vault's 
 Both skills **immerse you in the course language**: explanations, tests,
 feedback and the session plan are all in that language from the first
 message, whatever language you write in, because your exam will be in it.
-You may answer in your own language. Only when you are really lost on a
-point does the tutor explain that point in your language, then it switches
-back. Notes are written in the course language by default.
+You may answer in your own language. When you are lost on a point (second
+sign of confusion, or you are tired), the tutor recaps that point in your
+language, then it switches back. Notes are written in the course language by default.
 
 ## Contents
 

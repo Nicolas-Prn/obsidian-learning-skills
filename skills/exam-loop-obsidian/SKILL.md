@@ -389,6 +389,12 @@ upload actually done before the deadline.
 
 ---
 
+## Chat format
+
+- No Obsidian syntax in the chat (callouts, wikilinks, note headings).
+- Chat LaTeX: simple subset — short `$$...$$` blocks, no `\boxed`, no nested
+  `\underbrace`/`\overbrace`.
+
 ## Background note-taking (lean, expert sub-agent)
 
 **Trigger**: as soon as an item or part is **validated**, launch a sub-agent

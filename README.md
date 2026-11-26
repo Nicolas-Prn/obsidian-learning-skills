@@ -7,7 +7,7 @@ pick the one that matches your goal.
 | Skill | Goal | Pace |
 |---|---|---|
 | [`study-loop-obsidian`](#study-loop-obsidian--deep-understanding) | Understand the course in depth, line by line | Exhaustive: every concept, every definition |
-| [`exam-loop-obsidian`](#exam-loop-obsidian--pareto-coach-for-exams-and-deliverables) | Best grade in the least time, for an **exam** or a **graded deliverable** (homework, assignment, project, report) | Pareto: the ~20% of the work that earns ~80% of the points |
+| [`pareto-loop-obsidian`](#pareto-loop-obsidian--pareto-coach-for-exams-and-deliverables) | Best grade in the least time, for an **exam** or a **graded deliverable** (homework, assignment, project, report) | Pareto: the ~20% of the work that earns ~80% of the points |
 
 Both are demanding: critical tests, no "almost right", no flattery. They
 differ in what they cover and how far they go.
@@ -15,7 +15,7 @@ differ in what they cover and how far they go.
 You never have to pick the skill yourself: whichever one Claude loads first
 asks for your goal at the start of the session (unless your first message
 already makes it clear) and routes you to one of three modes — **depth**
-(`study-loop-obsidian`), **exam** or **deliverable** (`exam-loop-obsidian`).
+(`study-loop-obsidian`), **exam** or **deliverable** (`pareto-loop-obsidian`).
 A homework or project with a deadline goes to deliverable mode by default.
 You can also switch mid-session.
 
@@ -25,7 +25,7 @@ shows it in the client's progress panel (the **Progress** section in Claude
 desktop). Items are ticked off live as you validate them; when you fall
 behind, the plan is adjusted out loud so the session still ends on time —
 by moving concepts to the next session in `study-loop-obsidian`, by
-dropping the lowest-yield item in `exam-loop-obsidian`. Every session ends
+dropping the lowest-yield item in `pareto-loop-obsidian`. Every session ends
 with the very first concrete action of the next one, so restarting costs
 nothing.
 
@@ -67,7 +67,7 @@ explain a concept  →  test you (critically)  →  mastered?
   (no scaffolding, no commits) and never offers to; it explains, asks,
   reviews and points you to the right resource.
 
-## exam-loop-obsidian — Pareto coach for exams and deliverables
+## pareto-loop-obsidian — Pareto coach for exams and deliverables
 
 A **demanding Pareto coach** for graded work, when time is short. Progress
 is counted in validated output (exam skills that score, parts of the
@@ -229,7 +229,7 @@ skills/
 │   ├── SKILL.md                     # the skill
 │   ├── scripts/update_note_list.py  # lists the note titles in the vault
 │   └── assets/example.md            # style reference for notes
-└── exam-loop-obsidian/
+└── pareto-loop-obsidian/
     ├── SKILL.md                     # the skill
     ├── references/note-agent.md     # the lean note sub-agent's mission
     ├── scripts/update_note_list.py  # symlink to the shared script
@@ -283,7 +283,7 @@ At the start of a session, give Claude:
   file for all your courses);
 - the **course folder** containing the PDFs/slides.
 
-For `exam-loop-obsidian`, also have ready: the exam details (date, format,
+For `pareto-loop-obsidian`, also have ready: the exam details (date, format,
 grading, allowed material), the hours you can study, and the latest course
 documents, ideally with exercise solutions and past exams. For a
 deliverable: the statement, the rubric if any, the deadline and the folder

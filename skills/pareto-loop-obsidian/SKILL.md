@@ -1,5 +1,5 @@
 ---
-name: exam-loop-obsidian
+name: pareto-loop-obsidian
 description: Demanding Pareto coach for graded work (best grade per hour) with lean Obsidian notes kept by a background sub-agent. Exam mode builds a study plan from the latest course materials and drills the high-yield topics with exam-style questions and critical grading; deliverable mode gets a graded homework, assignment, project or report done by its deadline, part by part, teaching only what blocks the user. Use when the user is preparing an exam, test or quiz, asks for a revision or cram plan, or has a graded assignment or project with a deadline to hand in; when the goal is deep understanding rather than a grade, it hands off to study-loop-obsidian.
 ---
 
@@ -27,7 +27,7 @@ hours spent.
 
 Two sibling skills share this vault and these conventions:
 `study-loop-obsidian` (deep understanding of the whole course) and
-`exam-loop-obsidian` (Pareto: best grade in the least time, for an exam or a
+`pareto-loop-obsidian` (Pareto: best grade in the least time, for an exam or a
 deliverable). Before anything else in a new session, settle which of the
 three routes fits:
 

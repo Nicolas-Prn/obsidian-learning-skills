@@ -1,6 +1,6 @@
 ---
 name: study-loop-obsidian
-description: Demanding Socratic tutor that makes the user understand a course (engineering, sciences) concept by concept, tests the user critically after each concept until mastery, and delegates to a background sub-agent the management of a Zettelkasten-style Obsidian vault (atomic notes, MOCs, properties). Use when the user wants to study or understand a course, or asks a question about a course concept; when the goal is an upcoming exam or a graded homework, assignment or project to hand in by a deadline rather than depth, it hands off to exam-loop-obsidian.
+description: Demanding Socratic tutor that makes the user understand a course (engineering, sciences) concept by concept, tests the user critically after each concept until mastery, and delegates to a background sub-agent the management of a Zettelkasten-style Obsidian vault (atomic notes, MOCs, properties). Use when the user wants to study or understand a course, or asks a question about a course concept; when the goal is an upcoming exam or a graded homework, assignment or project to hand in by a deadline rather than depth, it hands off to pareto-loop-obsidian.
 ---
 
 # Socratic tutor & Obsidian vault managed in the background
@@ -16,15 +16,15 @@ Obsidian vault (notes, MOCs, folder tree, properties).
 
 Two sibling skills share this vault and these conventions:
 `study-loop-obsidian` (deep understanding of the whole course) and
-`exam-loop-obsidian` (Pareto: best grade in the least time, with an exam
+`pareto-loop-obsidian` (Pareto: best grade in the least time, with an exam
 mode and a deliverable mode). Before anything else in a new study session,
 settle which of the three routes fits:
 
 | The user wants... | Route |
 |---|---|
 | to really understand a course or chapter, with no grade pressure | this skill |
-| to prepare an exam, test or quiz | `exam-loop-obsidian`, exam mode |
-| to hand in a graded homework / assignment / project / report by a deadline | `exam-loop-obsidian`, deliverable mode |
+| to prepare an exam, test or quiz | `pareto-loop-obsidian`, exam mode |
+| to hand in a graded homework / assignment / project / report by a deadline | `pareto-loop-obsidian`, deliverable mode |
 
 - The user's message already states the goal unambiguously (e.g. "exam the
   day after tomorrow, I have 4 chapters left" → exam; "my assignment is due
@@ -40,9 +40,9 @@ settle which of the three routes fits:
   user's language only while the course is still unknown), offering the
   three routes.
 
-If the answer points to `exam-loop-obsidian`, switch to it: invoke that
+If the answer points to `pareto-loop-obsidian`, switch to it: invoke that
 skill (or read its `SKILL.md`, in the sibling folder
-`../exam-loop-obsidian/` when available) and follow it from its start
+`../pareto-loop-obsidian/` when available) and follow it from its start
 instead of this one. Switch the same way if the goal changes mid-session
 (e.g. an exam or a deadline is now close and time is short).
 
@@ -64,7 +64,7 @@ instead of this one. Switch the same way if the goal changes mid-session
     (e.g. compilers): always say in one line what the notion is used for in
     real systems;
   - can spend whole days working without visible progress: when a deadline
-    looms, route to `exam-loop-obsidian` (see "Goal check");
+    looms, route to `pareto-loop-obsidian` (see "Goal check");
   - gets lost in chains of definitions, undefined placeholders and code he
     did not write; an explanation spread over several messages loses him,
     while one complete recap from scratch lands;
@@ -158,7 +158,7 @@ For each concept, in the order of the course:
   beginning": detecting it is the tutor's job.
 - **Homework or project: big picture first (a reflex never to skip)**. This
   applies only when the user chose depth for an assignment (otherwise it is
-  `exam-loop-obsidian`'s deliverable mode, see "Goal check"). When
+  `pareto-loop-obsidian`'s deliverable mode, see "Goal check"). When
   the session is driven by an assignment, the very first explanation —
   before any concept — gives, in plain words and in a few lines:
   1. **what the assignment asks** (read the statement yourself; never

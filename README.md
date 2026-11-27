@@ -1,4 +1,4 @@
-# study-loop-obsidian
+# obsidian-learning-skills
 
 A collection of Claude skills for studying a course or learning inside a
 project, all with **fully automatic Obsidian note-taking** in the
@@ -329,15 +329,15 @@ scripts/
 Installs every skill at once:
 
 ```
-/plugin marketplace add Nicolas-Prn/study-loop-obsidian
-/plugin install study-loop@study-loop
+/plugin marketplace add Nicolas-Prn/obsidian-learning-skills
+/plugin install obsidian-learning-skills@obsidian-learning-skills
 ```
 
 ### Claude Code — from a clone
 
 ```bash
-git clone https://github.com/Nicolas-Prn/study-loop-obsidian.git
-./study-loop-obsidian/scripts/install.sh
+git clone https://github.com/Nicolas-Prn/obsidian-learning-skills.git
+./obsidian-learning-skills/scripts/install.sh
 ```
 
 The script symlinks every skill into `~/.claude/skills`, so a simple

@@ -16,58 +16,65 @@ Reference structure (shared with the sibling skills):
 ├── Resources/           # ALL atomic notes, flat, no subfolders
 ├── Maps of content/     # the MOCs — the ONLY folder with a real tree
 │   ├── Studies/<Institution>/<Year>/<Term>/COURSE NAME.md
-│   └── Projects/PROJECT NAME.md
+│   ├── <topic branch>/TOPIC NAME.md    # thematic MOCs (e.g. "Stochastic processes")
+│   └── Projects/PROJECT NAME.md        # project index, aggregation only
 └── Inbox/               # temporary notes, drafts, dashboards, plans
 ```
 
 - **Existing vault**: identify its real structure (notes folder, MOC
-  hierarchy, properties) and follow it, under its own names. If the vault
-  already has a branch for projects, use it; otherwise create
+  hierarchy, properties) and follow it, under its own names. Use the
+  branch where the vault already keeps thematic MOCs; create a fitting
+  branch (e.g. `Maps of content/Topics/`) only if none exists. Same for the
+  project index: an existing projects branch, otherwise
   `Maps of content/Projects/`.
 - **Empty vault or vault without structure**: create the base structure
-  above, the project MOC, and a minimal `Inbox/Home.md` listing the MOCs.
+  above, the topic MOCs the first notes need, the project index, and a
+  minimal `Inbox/Home.md` listing the MOCs.
 - **Dashboards**: if `.base` files or home notes filter MOC folders, add the
   new folder to the filter (addition only).
-- **Tools and technologies**: a reusable tool or technology learned in the
-  project (e.g. Rust, Flutter) gets its OWN MOC in the branch where the vault
-  keeps tool/technology MOCs (create a fitting branch only if none exists),
-  linked from the project MOC. Its notes use `MOC: '[[<TOOL MOC>]]'` and
-  `Source: '[[<project MOC>]]'`.
 
-## Properties (YAML frontmatter)
+## Topic MOCs: where notes belong (critical rule)
 
-- **Atomic note** (Own or Use concept, definition, method):
-  ```yaml
-  ---
-  MOC: '[[PROJECT NAME]]'
-  Source: '[[<source note>]]'
-  Date: YYYY-MM-DD
-  Depth: Own
-  ---
-  ```
-  `MOC` = the MOC that references the note; `Source` = the source note the
-  knowledge comes from (the project MOC when it came from the session
-  itself); `Date` = creation date; `Depth` = `Own` or `Use`.
-- **Source note**: `MOC`, `Date`, `Type` (`Textbook`, `Lecture notes`,
-  `Paper`, `Documentation`, `Article`), `URL` (or `DOI`).
-- **MOC**: `cover` property if the vault uses it; leave it empty
-  (`cover: ""`) when no image is available.
-- If the vault uses other properties, follow those of recent notes of the
-  same type.
+A project is **not** a topic. Notes are attached to **topic MOCs** — the
+broad themes the knowledge belongs to (e.g. "Stochastic processes",
+"Differential equations", "Neural networks", "Rust") — never to the
+project.
 
-## Project MOC
+- **No note ever has the project index as its `MOC`.** Its `MOC` property
+  is the topic MOC that references it.
+- **Reuse before creating**: read the titles of the existing MOCs (all
+  branches, courses included) and attach the note to the one that already
+  covers its theme, adding a section if needed.
+- **Create a new topic MOC** only when no existing MOC covers the theme.
+- **Granularity: copy the vault's.** Look at the titles and scope of the
+  existing MOCs and create new ones at the same level of breadth: a broad
+  theme ("Stochastic processes"), not a single concept ("Markov chains")
+  and not a whole field ("Mathematics"). A concept too small for its own
+  MOC is a `##` section of a broader one.
+- **Titles: copy the vault's style** for new MOCs (wording, capitalisation,
+  language), as seen in the existing MOC titles.
+- **Inside a topic MOC**: `##` sections by sub-theme, `- [[Title]]` links in
+  the order a newcomer should read them (prerequisites first), indented
+  sub-bullets for the special cases of a note. Every new note is added to
+  its topic MOC; no orphan notes.
+- **Tools and technologies** (e.g. Rust, Flutter) are topics too: each gets
+  its own MOC in the branch where the vault keeps tool/technology MOCs
+  (create a fitting branch only if none exists).
+- A topic MOC links to related topic MOCs and to the course MOCs that cover
+  the same theme (both ways, addition only).
 
-One MOC per project, `Maps of content/Projects/PROJECT NAME.md`:
+## Project index (aggregation only)
 
-- at the top: one line on the project, a link to the learning plan note and
-  to the notation note, and the main source notes;
-- `##` sections by **knowledge area** (e.g. "Point processes",
-  "Differential equations", "Neural networks", "Tooling"), not by sprint:
-  the knowledge outlives the backlog;
-- in each section, `- [[Title]]` links in the order a newcomer should read
-  them (prerequisites first), Own notes before Use notes; indented
-  sub-bullets for the special cases of a note;
-- every new note is added to it; no orphan notes.
+One page per project, `Maps of content/Projects/PROJECT NAME.md`, only to
+help the user find their way. It is **never** the `MOC` of a note.
+
+- at the top: one line on the project, links to the learning plan note, the
+  notation note and the main source notes;
+- the topic MOCs the project draws on, one line each;
+- under each topic, `- [[Title]]` links to the notes created or enriched
+  for this project, in reading order (Own notes before Use notes);
+- update it at every job: every note created or enriched for the project
+  appears in it, in addition to its topic MOC.
 
 Source documents live in the vault when they are files: copy each PDF the
 user provided (keep its name, skip if already there) into the vault's
@@ -127,7 +134,7 @@ elements of Hawkes processes"). Content:
 
 ### The notation note
 
-A single note, `PROJECT NAME notation`, linked from the project MOC: one
+A single note, `PROJECT NAME notation`, linked from the project index: one
 table with symbol, meaning, unit or domain, and the source each symbol
 comes from. Update it by addition whenever a new symbol is fixed; when a
 symbol is redefined, keep the previous meaning in a `#### Previous
@@ -137,7 +144,8 @@ notation` section with the date.
 
 When asked to save the plan, write `Inbox/PROJECT NAME learning plan.md`:
 
-- properties: `MOC` (the project MOC), `Date`;
+- properties: `Source` (the project index), `Date`; no `MOC` (it is a
+  plan, not a topic note);
 - a line with the project profile (one sentence, the learning goals, the
   from-scratch contract, the rhythm);
 - `#### Next step`: one line, the very first concrete action of the next
@@ -173,8 +181,8 @@ sibling skills.
 
 1. Refresh `note_list.txt`
    (`scripts/update_note_list.py <vault> <list>`, in this skill's folder).
-2. Check the structure and complete it if needed (project MOC, notation
-   note, learning plan note).
+2. Check the structure and complete it if needed (topic MOCs, project
+   index, notation note, learning plan note).
 3. Check the formalism against the sources given (fetch the URL or open the
    PDF at the pages given) and against the notation note.
 4. List the vocabulary terms of the concept and check that each one has its
@@ -186,7 +194,8 @@ sibling skills.
    concept, create a separate note and link both ways.
 6. Write the notes in `Resources/`, with properties, in the project
    language; create or enrich the source notes.
-7. Add them to the project MOC (and to a tool MOC if relevant); update the
+7. Add them to their topic MOC (creating it if no existing MOC fits, at the
+   vault's granularity) and to the project index; update the
    learning plan note, the notation note and the dashboards if needed.
 8. Interconnect: links to the related existing notes (prerequisites, sibling
    concepts, the same concept seen in a course), and backlinks in the

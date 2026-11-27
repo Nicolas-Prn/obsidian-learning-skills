@@ -232,7 +232,10 @@ each session = one item of the backlog:
   verification, the path of your implementation), lean notes for Use
   concepts, one note per source, a project notation note, and a learning
   plan note with the knowledge map, the next step, the knowledge debt and
-  the open questions, all under a project MOC in `Maps of content/Projects/`.
+  the open questions. Notes belong to **topic MOCs** (broad themes such as
+  "Stochastic processes", reused when they exist, created at your vault's
+  granularity when they do not), never to the project: the project page in
+  `Maps of content/Projects/` is only an index that aggregates them.
 - **Still your work**: it reads your repository and tracker, but never
   writes your code.
 
@@ -264,7 +267,8 @@ All the skills share the same vault conventions. The sub-agent manages the vault
 ├── Resources/           # all atomic notes, flat
 ├── Maps of content/     # MOCs — the only folder with a real tree
 │   ├── Studies/<Institution>/<Year>/<Term>/COURSE NAME.md
-│   └── Projects/PROJECT NAME.md
+│   ├── <topic branch>/TOPIC NAME.md   # thematic MOCs
+│   └── Projects/PROJECT NAME.md       # project index, aggregation only
 └── Inbox/               # temporary notes, drafts, dashboards, plans
 ```
 

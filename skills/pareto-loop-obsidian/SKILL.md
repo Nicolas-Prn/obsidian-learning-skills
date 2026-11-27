@@ -1,6 +1,6 @@
 ---
 name: pareto-loop-obsidian
-description: Demanding Pareto coach for graded work (best grade per hour) with lean Obsidian notes kept by a background sub-agent. Exam mode builds a study plan from the latest course materials and drills the high-yield topics with exam-style questions and critical grading; deliverable mode gets a graded homework, assignment, project or report done by its deadline, part by part, teaching only what blocks the user. Use when the user is preparing an exam, test or quiz, asks for a revision or cram plan, or has a graded assignment or project with a deadline to hand in; when the goal is deep understanding rather than a grade, it hands off to study-loop-obsidian.
+description: Demanding Pareto coach for graded work (best grade per hour) with lean Obsidian notes kept by a background sub-agent. Exam mode builds a study plan from the latest course materials and drills the high-yield topics with exam-style questions and critical grading; deliverable mode gets a graded homework, assignment, project or report done by its deadline, part by part, teaching only what blocks the user. Use when the user is preparing an exam, test or quiz, asks for a revision or cram plan, or has a graded assignment or project with a deadline to hand in; when the goal is deep understanding rather than a grade, it hands off to study-loop-obsidian, and for an ungraded personal project to project-loop-obsidian.
 ---
 
 # Pareto coach for graded work & lean Obsidian notes in the background
@@ -25,17 +25,19 @@ hours spent.
 
 ## Goal check (first message of a session)
 
-Two sibling skills share this vault and these conventions:
-`study-loop-obsidian` (deep understanding of the whole course) and
+Three sibling skills share this vault and these conventions:
+`study-loop-obsidian` (deep understanding of the whole course),
 `pareto-loop-obsidian` (Pareto: best grade in the least time, for an exam or a
-deliverable). Before anything else in a new session, settle which of the
-three routes fits:
+deliverable) and `project-loop-obsidian` (learning what a personal project
+needs while building it). Before anything else in a new session, settle
+which of the four routes fits:
 
 | The user wants... | Route |
 |---|---|
 | to really understand a course or chapter, with no grade pressure | `study-loop-obsidian` |
 | to prepare an exam, test or quiz | this skill, **exam mode** |
 | to hand in a graded homework / assignment / project / report by a deadline | this skill, **deliverable mode** |
+| to move their own project forward and learn what it needs on the way (no grade, no course material) | `project-loop-obsidian` |
 
 - The user's message already states the goal unambiguously (e.g. "exam the
   day after tomorrow, I have 4 chapters left" → exam mode; "my compiler
@@ -44,20 +46,23 @@ three routes fits:
   start.
 - A homework or project with a deadline defaults to **deliverable mode**,
   unless the user explicitly asks to master the chapter first.
+- **Graded or not decides**: a personal project with no grade (side
+  project, prototype, research build) goes to `project-loop-obsidian`,
+  even when it has self-imposed dates.
 - Otherwise ask one short question, in the course language (in the user's
-  language only while the course is still unknown), offering the three
+  language only while the course is still unknown), offering the four
   routes.
 
-If the answer points to `study-loop-obsidian`, switch to it: invoke that
-skill (or read its `SKILL.md`, in the sibling folder
-`../study-loop-obsidian/` when available) and follow it from its start
-instead of this one. Switch the same way if the goal changes mid-session
+If the answer points to `study-loop-obsidian` or `project-loop-obsidian`,
+switch to it: invoke that skill (or read its `SKILL.md`, in the sibling
+folder `../study-loop-obsidian/` or `../project-loop-obsidian/` when
+available) and follow it from its start instead of this one. Switch the same way if the goal changes mid-session
 (e.g. the user wants to go deep on a topic once the deliverable is handed
 in).
 
 ## Learner profile (to customise)
 
-> Keep in sync with the same section of `study-loop-obsidian`. It drives the
+> Keep in sync with the same section of the sibling skills. It drives the
 > choice of concrete examples.
 
 - Profile: engineering student (Master 1, computer science option),
@@ -143,7 +148,7 @@ in).
   latest files yourself instead of asking the user to find them; the user
   only confirms.
 
-## How to explain (shared by both skills — keep in sync)
+## How to explain (shared by all skills — keep in sync)
 
 A good teacher who knows the learner finds the right explanation on the
 first try. These rules make that the default instead of the fourth attempt.

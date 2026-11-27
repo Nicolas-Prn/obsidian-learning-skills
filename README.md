@@ -1,23 +1,25 @@
 # study-loop-obsidian
 
-A collection of Claude skills for studying a course, all with **fully
-automatic Obsidian note-taking** in the background. They install together;
-pick the one that matches your goal.
+A collection of Claude skills for studying a course or learning inside a
+project, all with **fully automatic Obsidian note-taking** in the
+background. They install together; pick the one that matches your goal.
 
 | Skill | Goal | Pace |
 |---|---|---|
 | [`study-loop-obsidian`](#study-loop-obsidian--deep-understanding) | Understand the course in depth, line by line | Exhaustive: every concept, every definition |
 | [`pareto-loop-obsidian`](#pareto-loop-obsidian--pareto-coach-for-exams-and-deliverables) | Best grade in the least time, for an **exam** or a **graded deliverable** (homework, assignment, project, report) | Pareto: the ~20% of the work that earns ~80% of the points |
+| [`project-loop-obsidian`](#project-loop-obsidian--learning-inside-a-personal-project) | Move your **own project** forward and learn what it needs on the way, with no course material and no grader | Just in time: full depth for what you want to own, just enough for the rest |
 
-Both are demanding: critical tests, no "almost right", no flattery. They
-differ in what they cover and how far they go.
+All three are demanding: critical tests, no "almost right", no flattery.
+They differ in what they cover and how far they go.
 
 You never have to pick the skill yourself: whichever one Claude loads first
 asks for your goal at the start of the session (unless your first message
-already makes it clear) and routes you to one of three modes — **depth**
-(`study-loop-obsidian`), **exam** or **deliverable** (`pareto-loop-obsidian`).
-A homework or project with a deadline goes to deliverable mode by default.
-You can also switch mid-session.
+already makes it clear) and routes you to one of four modes — **depth**
+(`study-loop-obsidian`), **exam** or **deliverable** (`pareto-loop-obsidian`),
+or **project** (`project-loop-obsidian`). A graded homework or project with a
+deadline goes to deliverable mode by default; a personal project with no
+grade goes to project mode. You can also switch mid-session.
 
 Every session starts with a **session plan** sized to the time you have:
 the tutor explains what will be covered, with a time budget per item, and
@@ -25,9 +27,10 @@ shows it in the client's progress panel (the **Progress** section in Claude
 desktop). Items are ticked off live as you validate them; when you fall
 behind, the plan is adjusted out loud so the session still ends on time —
 by moving concepts to the next session in `study-loop-obsidian`, by
-dropping the lowest-yield item in `pareto-loop-obsidian`. Every session ends
-with the very first concrete action of the next one, so restarting costs
-nothing.
+dropping the lowest-yield item in `pareto-loop-obsidian`, by shrinking the
+building part to the smallest piece that runs in `project-loop-obsidian`.
+Every session ends with the very first concrete action of the next one, so
+restarting costs nothing.
 
 ## study-loop-obsidian — deep understanding
 
@@ -165,10 +168,78 @@ final rubric check  →  submission checklist  →  handed in
   the mistake log and the next step; notes only for what was taught to
   unblock you.
 
-## How explanations are built (both skills)
+## project-loop-obsidian — learning inside a personal project
 
-Both skills share one way of explaining, so the right explanation comes on
-the first try instead of the fourth:
+A **demanding learning coach embedded in your own project** (side project,
+prototype, research-style build). There is no syllabus and no grader: the
+coach turns your backlog into a learning path, does the research legwork
+itself, and teaches each concept **at the moment the project needs it**,
+then has you apply it straight away in your own code. Progress is counted on
+two scoreboards at once: the project (what runs now) and the knowledge you
+own.
+
+```
+intake: the project, your learning goals, the from-scratch contract
+        │
+        ▼
+knowledge map: backlog → concepts → Own / Use / Defer, ordered just in time
+        │
+        ▼
+each session = one item of the backlog:
+   anchor (item, "done when", 1 retrieval question)
+        │
+        ▼
+   diagnose  →  already owned? → build
+        │ no
+        ▼
+   research (Claude finds, ranks and cross-checks the sources)
+        │
+        ▼
+   learn:  Own → full depth: reading pack, you derive the key step,
+                  critical test, loop until mastery
+           Use → just the blocking point, one check
+        │
+        ▼
+   build from scratch  →  verify like a scientist  →  validated?
+        │                                               │ yes
+        ▼                                               ▼
+   wrap-up: a visible win, the next action    background sub-agent writes
+                                              the notes, updates the plan
+```
+
+- **Depth chosen per concept**: **Own** (what the project exists to teach
+  you, e.g. the mathematics of your model) is validated by four proofs —
+  teach-back, hand derivation of the key step, a from-scratch
+  implementation that passes verification, and a correct prediction on a
+  new case. **Use** (tools, frameworks, plumbing) only has to work and be
+  explainable in one sentence. **Defer** is logged as knowledge debt with a
+  repay-by date.
+- **Research protocol**: your own notes first, then a ranked search
+  (textbooks and lecture notes, surveys, original papers, official docs,
+  blogs, forums last), every formula cross-checked in two sources, one
+  **project notation** that every source is mapped onto, and a short
+  **reading pack** (one source, exact pages, guiding questions) for what you
+  want to own.
+- **The from-scratch contract**: in the parts you decided to build by hand,
+  libraries only appear as oracles in your tests.
+- **Verify like a scientist**: oracle comparison, simulate-then-recover,
+  invariants, convergence checks, predict-then-run, plots.
+- **Built for months, not one exam**: a retrieval question at every session
+  start, a teach-back checkpoint at the end of each epic, a knowledge-debt
+  log, one planned deep dive per sprint at most, a visible win every
+  session.
+- **Notes**: full-rigour notes for Own concepts (your derivation, the
+  verification, the path of your implementation), lean notes for Use
+  concepts, one note per source, a project notation note, and a learning
+  plan note with the knowledge map, the next step, the knowledge debt and
+  the open questions, all under a project MOC in `Maps of content/Projects/`.
+- **Still your work**: it reads your repository and tracker, but never
+  writes your code.
+
+## How explanations are built (all skills)
+
+All the skills share one way of explaining, so the right explanation comes
+on the first try instead of the fourth:
 
 - **The explanation ladder**: answer your exact question first, then the
   purpose, what happens on one concrete input, one everyday analogy mapped
@@ -186,14 +257,15 @@ the first try instead of the fourth:
 
 ## Vault structure (Zettelkasten adapted to Obsidian)
 
-Both skills share the same vault conventions. The sub-agent manages the vault's **structure**, not just notes:
+All the skills share the same vault conventions. The sub-agent manages the vault's **structure**, not just notes:
 
 ```
 <vault>/
 ├── Resources/           # all atomic notes, flat
 ├── Maps of content/     # MOCs — the only folder with a real tree
-│   └── Studies/<Institution>/<Year>/<Term>/COURSE NAME.md
-└── Inbox/               # temporary notes, drafts, dashboards
+│   ├── Studies/<Institution>/<Year>/<Term>/COURSE NAME.md
+│   └── Projects/PROJECT NAME.md
+└── Inbox/               # temporary notes, drafts, dashboards, plans
 ```
 
 - **Empty vault**: it bootstraps this structure from scratch (folders, course
@@ -213,9 +285,11 @@ Both skills share the same vault conventions. The sub-agent manages the vault's 
 
 ## Language
 
-Both skills **immerse you in the course language**: explanations, tests,
-feedback and the session plan are all in that language from the first
-message, whatever language you write in, because your exam will be in it.
+All the skills **immerse you in the course language** (for
+`project-loop-obsidian`, the project language: that of its code, docs and
+literature): explanations, tests, feedback and the session plan are all in
+that language from the first message, whatever language you write in,
+because your exam or your project lives in it.
 You may answer in your own language. When you are lost on a point (second
 sign of confusion, or you are tired), the tutor recaps that point in your
 language, then it switches back. Notes are written in the course language by default.
@@ -229,9 +303,14 @@ skills/
 │   ├── SKILL.md                     # the skill
 │   ├── scripts/update_note_list.py  # lists the note titles in the vault
 │   └── assets/example.md            # style reference for notes
-└── pareto-loop-obsidian/
+├── pareto-loop-obsidian/
+│   ├── SKILL.md                     # the skill
+│   ├── references/note-agent.md     # the lean note sub-agent's mission
+│   ├── scripts/update_note_list.py  # symlink to the shared script
+│   └── assets/example.md            # symlink to the shared example
+└── project-loop-obsidian/
     ├── SKILL.md                     # the skill
-    ├── references/note-agent.md     # the lean note sub-agent's mission
+    ├── references/note-agent.md     # the project note sub-agent's mission
     ├── scripts/update_note_list.py  # symlink to the shared script
     └── assets/example.md            # symlink to the shared example
 scripts/
@@ -270,9 +349,9 @@ The script symlinks every skill into `~/.claude/skills`, so a simple
 
 ## Customisation
 
-Open each `SKILL.md` and adapt the **"Learner profile"** section (keep both
-in sync): it drives the choice of concrete examples (DIY, finance, medicine,
-video games...).
+Open each `SKILL.md` and adapt the **"Learner profile"** section (keep all
+of them in sync): it drives the choice of concrete examples (DIY, finance,
+medicine, video games...).
 
 ## First use
 
@@ -289,6 +368,13 @@ documents, ideally with exercise solutions and past exams. For a
 deliverable: the statement, the rubric if any, the deadline and the folder
 of your work. With a course-platform connector (e.g. Moodle), the coach
 fetches deadlines, statements and announcements itself.
+
+For `project-loop-obsidian`, have ready: a one-sentence description of the
+project and what you want to learn from it, which parts you will build from
+scratch, the repository (read-only for Claude), the tracker if any (Notion,
+GitHub issues...) and whether Claude may update it, and your usual session
+length. Web search makes the research protocol much better; without it, the
+coach works from your notes and the sources you provide.
 
 Claude needs read/write access to these folders (in the app: connected
 folders; in Claude Code: start the session from a parent folder or add

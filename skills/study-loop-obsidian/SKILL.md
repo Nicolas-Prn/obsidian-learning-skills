@@ -14,17 +14,19 @@ Obsidian vault (notes, MOCs, folder tree, properties).
 
 ## Goal check (first message of a session)
 
-Two sibling skills share this vault and these conventions:
-`study-loop-obsidian` (deep understanding of the whole course) and
+Three sibling skills share this vault and these conventions:
+`study-loop-obsidian` (deep understanding of the whole course),
 `pareto-loop-obsidian` (Pareto: best grade in the least time, with an exam
-mode and a deliverable mode). Before anything else in a new study session,
-settle which of the three routes fits:
+mode and a deliverable mode) and `project-loop-obsidian` (learning what a
+personal project needs while building it). Before anything else in a new
+study session, settle which of the four routes fits:
 
 | The user wants... | Route |
 |---|---|
 | to really understand a course or chapter, with no grade pressure | this skill |
 | to prepare an exam, test or quiz | `pareto-loop-obsidian`, exam mode |
 | to hand in a graded homework / assignment / project / report by a deadline | `pareto-loop-obsidian`, deliverable mode |
+| to move their own project forward and learn what it needs on the way (no grade, no course material) | `project-loop-obsidian` |
 
 - The user's message already states the goal unambiguously (e.g. "exam the
   day after tomorrow, I have 4 chapters left" → exam; "my assignment is due
@@ -36,14 +38,17 @@ settle which of the three routes fits:
   wants to master the chapter through the assignment and has the time for
   it; under deadline pressure they cost whole days of work without visible
   progress.
+- **A personal project with no grade** (side project, prototype, research
+  build) goes to `project-loop-obsidian`; a graded course project goes to
+  deliverable mode.
 - Otherwise ask one short question, in the course language (in the
   user's language only while the course is still unknown), offering the
-  three routes.
+  four routes.
 
-If the answer points to `pareto-loop-obsidian`, switch to it: invoke that
-skill (or read its `SKILL.md`, in the sibling folder
-`../pareto-loop-obsidian/` when available) and follow it from its start
-instead of this one. Switch the same way if the goal changes mid-session
+If the answer points to `pareto-loop-obsidian` or `project-loop-obsidian`,
+switch to it: invoke that skill (or read its `SKILL.md`, in the sibling
+folder `../pareto-loop-obsidian/` or `../project-loop-obsidian/` when
+available) and follow it from its start instead of this one. Switch the same way if the goal changes mid-session
 (e.g. an exam or a deadline is now close and time is short).
 
 ## Learner profile (to customise)
@@ -235,7 +240,7 @@ For each concept, in the order of the course:
 - When a question refers to a file (problem statement, provided code), **name
   the exact file to open**: never assume the user knows where to look.
 
-### How to explain (shared by both skills — keep in sync)
+### How to explain (shared by all skills — keep in sync)
 
 A good teacher who knows the learner finds the right explanation on the
 first try. These rules make that the default instead of the fourth attempt.

@@ -537,6 +537,9 @@ explained but not yet validated (and therefore not yet noted).
 conversation) and contain:
 - the instruction to read `references/note-agent.md` in this skill's folder
   (give its absolute path) and to follow it as its mission;
+- the reminder that notes belong to **topic MOCs** (broad themes, created at
+  the vault's granularity when none fits), never to the project index,
+  which only aggregates;
 - the job: notes for a validated concept, saving or updating the learning
   plan note, recording sources, ticking concepts off, or recording the next
   step;
@@ -556,7 +559,8 @@ conversation) and contain:
 - the titles of the notes already created this session, and the learner's
   prior notes on the concept (from any course or context), named
   explicitly;
-- the paths: vault, `note_list.txt`, project MOC, learning plan note,
+- the paths: vault, `note_list.txt`, project index, topic MOCs already used
+  by the project, learning plan note,
   notation note, living learner profile (`Inbox/Learner profile.md`), and
   the folder of source PDFs if any;
 - when an explanation landed after confusion: what worked and what failed,
@@ -564,8 +568,9 @@ conversation) and contain:
 
 ## Files of this skill
 
-- `references/note-agent.md` — the note sub-agent's mission (project MOC,
-  Own and Use notes, source notes, notation note, learning plan note).
+- `references/note-agent.md` — the note sub-agent's mission (topic MOCs,
+  project index, Own and Use notes, source notes, notation note, learning
+  plan note).
 - `scripts/update_note_list.py` — regenerates the central list of notes
   (shared with the sibling skills).
 - `assets/example.md` — formatting reference for notes (shared; an Own note
